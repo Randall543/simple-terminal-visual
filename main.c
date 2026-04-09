@@ -1,13 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main(){
-	/*char* test = "***********************************************\n**********************************************\n********************************************************\n";*/
+	// get the data from the file 
 	FILE* frame = fopen("./temp.txt", "r");
 	char buffer[200];
-
 	size_t file_read = fread(buffer, sizeof buffer, 195, frame);
-
-	printf("%s", buffer);
+	// close it as we'll work with the buffer from here on.
+	fclose(frame);
+	
+	int number_of_loops = 4;
+	for (int i = 0; i < number_of_loops; i++) {
+		printf("iteration: %i\n", i);
+		printf("%s", buffer);
+	}
 
 	return 1;
 }
