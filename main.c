@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 int main(){
 	// get the data from the file 
 	FILE* frame = fopen("./temp.txt", "r");
@@ -12,6 +13,8 @@ int main(){
 	for (int i = 0; i < number_of_loops; i++) {
 		printf("iteration: %i\n", i);
 		printf("%s", buffer);
+		printf("\033[H\033[2J");
+		sleep(3);
 	}
 
 	return 1;
